@@ -2,8 +2,10 @@ package com.cs4.appointmentManagement.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Doctor {
@@ -18,7 +20,7 @@ public class Doctor {
 	@Column(name="Last_Name")
 	private String lastName;
 	
-	
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Specialty specialty;
 	
 }
