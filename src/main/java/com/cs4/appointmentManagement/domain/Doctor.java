@@ -18,6 +18,7 @@ public class Doctor {
 	@Column(name="Last_Name")
 	private String lastName;
 	
+	
 	private Specialty specialty;
 	
 }
