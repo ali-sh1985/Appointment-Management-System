@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-4.0.xsd
+			http://www.springframework.org/schema/mvc 
+			http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <!-- Enable annotation-based Spring MVC controllers (eg: @Controller annotation) -->
+    <mvc:annotation-driven/>
+
+    <!-- Classpath scanning of @Component, @Service, etc annotated class -->
+    <context:component-scan base-package="com.cs4.appointmentManagement" />
+
+    <!-- Resolve view name into jsp file located on /WEB-INF -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- MySQL Datasource with Commons DBCP connection pooling -->
+    <!-- <bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/hello" />
+        <property name="username" value="root" />
+        <property name="password" value="root" />
+    </bean> -->
+
+    <!-- EntityManagerFactory -->
+    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
+        <property name="persistenceUnitName" value="persistenceUnit" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- Transaction Manager -->
+    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+    <!-- Enable @Transactional annotation -->
+    <tx:annotation-driven/>
+</beans>
