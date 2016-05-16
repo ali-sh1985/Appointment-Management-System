@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-//@Entity
+@Entity
 public class Doctor {
 	
 	@Id
