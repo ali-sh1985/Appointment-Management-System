@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Patient {
@@ -27,4 +28,7 @@ public class Patient {
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name = "Patient_Doctor", joinColumns = @JoinColumn(name = "Patient_ID"), inverseJoinColumns = @JoinColumn(name = "Doctor_ID"))
 	private List<Doctor> doctors;
+	
+	@OneToMany(mappedBy = "patient")
+	private List<Appointment> appointmentsList;
 }

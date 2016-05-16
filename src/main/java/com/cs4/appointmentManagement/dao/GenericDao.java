@@ -3,13 +3,21 @@ package com.cs4.appointmentManagement.dao;
 import java.util.List;
 
 public interface GenericDao<T> {
-	void save(T t);
+	/**
+     * Method that returns the number of entries from a table that meet some
+     * criteria (where clause params)
+     * @param params
+     *  sql parameters
+     * @return the number of records meeting the criteria
+     */
 
-	void delete(Long id);
+    void save(T t);
 
-	T findOne(Long id);
+    void delete(Long id);
 
-	T update(T t);
+    T findOne(Long id);
 
-	List<T> findAll();
+    T update(T t);   
+    
+    List<T> findAll();
 }
