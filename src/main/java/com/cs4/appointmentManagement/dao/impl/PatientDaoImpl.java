@@ -1,5 +1,8 @@
 package com.cs4.appointmentManagement.dao.impl;
 
-public class PatientDaoImpl {
+import com.cs4.appointmentManagement.dao.PatientDao;
+import com.cs4.appointmentManagement.domain.Patient;
+
+public class PatientDaoImpl extends GenericDaoImpl<Patient> implements PatientDao {
 
 }

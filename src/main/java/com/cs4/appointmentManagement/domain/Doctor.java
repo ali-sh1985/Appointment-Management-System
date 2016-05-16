@@ -25,7 +25,7 @@ public class Doctor {
 	private String lastName;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Specialty specialty;
+	private Speciality speciality;
 	
 	@ManyToMany(mappedBy = "doctors")
 	private List<Patient> patients;

@@ -1,5 +1,8 @@
 package com.cs4.appointmentManagement.dao.impl;
 
-public class UserCredentialsDaoImpl {
+import com.cs4.appointmentManagement.dao.UserCredentialsDao;
+import com.cs4.appointmentManagement.domain.UserCredentials;
+
+public class UserCredentialsDaoImpl extends GenericDaoImpl<UserCredentials> implements UserCredentialsDao{
 
 }

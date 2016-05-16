@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Specialty {
+public class Speciality {
 
 	@Id
 	@GeneratedValue

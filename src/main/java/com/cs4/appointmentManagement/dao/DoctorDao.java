@@ -1,5 +1,7 @@
 package com.cs4.appointmentManagement.dao;
 
-public interface DoctorDao {
+import com.cs4.appointmentManagement.domain.Doctor;
+
+public interface DoctorDao extends GenericDao<Doctor>{
 
 }

@@ -1,5 +1,7 @@
 package com.cs4.appointmentManagement.dao;
 
-public interface AddressDao {
+import com.cs4.appointmentManagement.domain.Address;
+
+public interface AddressDao extends GenericDao<Address> {
 
 }
