@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Doctor {
@@ -28,5 +29,8 @@ public class Doctor {
 	
 	@ManyToMany(mappedBy = "doctors")
 	private List<Patient> patients;
+	
+	@OneToMany(mappedBy = "doctor")
+	private List<Appointment> appointmentsList;
 	
 }
