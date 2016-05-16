@@ -30,15 +30,14 @@
 		<!-- <security:access-denied-handler error-page="/error-forbidden" /> <security:access-denied-handler 
 			ref="controllerExceptionHandler" /> -->
 
-		<security:form-login/>
+		<security:form-login />
 		<!-- Implemented with Web based URL - Controller "METHOD" level authorization -->
 		<!-- the more specific rules need to come first, followed by the more general 
 			ones. -->
 		<!-- COMmENT out the following to see @Service METHOD level authorization -->
-		<!-- <security:intercept-url pattern="/users/add"
-			access="hasRole('ROLE_ADMIN')" />
-		<security:intercept-url pattern="/"
-			access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" /> -->
+		<!-- <security:intercept-url pattern="/users/add" access="hasRole('ROLE_ADMIN')" 
+			/> <security:intercept-url pattern="/" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" 
+			/> -->
 		<!-- Switch to HTTPS -->
 		<!-- <security:intercept-url pattern="/login" access="isAnonymous()" requires-channel="https"/> 
 			<security:intercept-url pattern="/logout" access="isAnonymous()" requires-channel="http"/> -->
@@ -49,10 +48,10 @@
 			stuff -->
 		<!-- e.g., /j_spring_security_check is default for login-processing-url -->
 		<!-- Comment out login-page through logoinfailed for BASIC -->
-		<!-- <security:form-login login-page="/login"
-			default-target-url="/home" always-use-default-target="true"
-			username-parameter="username" password-parameter="password"
-			login-processing-url="/DoLogin" authentication-failure-url="/loginfailed" /> -->
+		<!-- <security:form-login login-page="/login" default-target-url="/home" 
+			always-use-default-target="true" username-parameter="username" password-parameter="password" 
+			login-processing-url="/DoLogin" authentication-failure-url="/loginfailed" 
+			/> -->
 		<!-- login-page="/login" -->
 		<!-- login-processing-url="/postLogin" -->
 		<!-- username-parameter="username" -->
@@ -60,8 +59,8 @@
 		<!-- default-target-url="/welcome" -->
 		<!-- always-use-default-target="true" -->
 		<!-- authentication-failure-url="/loginfailed"/> -->
-		<!-- <security:logout logout-success-url="/logout"
-			logout-url="/doLogout" /> -->
+		<!-- <security:logout logout-success-url="/logout" logout-url="/doLogout" 
+			/> -->
 
 		<!-- <security:form-login /> -->
 
@@ -82,16 +81,19 @@
 	<!-- </security:authentication-provider> -->
 	<!-- </security:authentication-manager> -->
 
+	<!-- <security:authentication-manager> <security:authentication-provider 
+		ref="customAuth"> </security:authentication-provider> </security:authentication-manager> -->
+
 	<security:authentication-manager>
-		<security:authentication-provider
-			ref="customAuth">
+		<security:authentication-provider>
+			<security:password-encoder hash="bcrypt" />
+			<security:user-service>
+				<security:user name="admin" password="admin"
+					authorities="ROLE_ADMIN" />
+				<security:user name="guest" password="guest"
+					authorities="ROLE_USER" />
+			</security:user-service>
 		</security:authentication-provider>
 	</security:authentication-manager>
-
-	<!--security:authentication-manager> <security:authentication-provider> 
-		<password-encoder hash="bcrypt" /> <security:user-service> <security:user 
-		name="admin" password="admin" authorities="ROLE_ADMIN" /> <security:user 
-		name="guest" password="guest" authorities="ROLE_USER" /> </security:user-service> 
-		</security:authentication-provider> </security:authentication-manager -->
 
 </beans>
