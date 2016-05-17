@@ -20,7 +20,4 @@ public interface GenericDao<T> {
     T update(T t);   
     
     List<T> findAll();
-
-    
-    
 }
