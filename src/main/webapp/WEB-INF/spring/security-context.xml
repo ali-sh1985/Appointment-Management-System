@@ -19,8 +19,9 @@
 	<security:http use-expressions="true">
 		<security:csrf disabled="true" />
 
-		<security:intercept-url pattern="/**"
-			access="hasRole('ROLE_ANONYMOUS')" />
+		<security:intercept-url pattern="/home"
+			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+			
 		<!-- if non-standard ports for HTTP and/or HTTPS, you can specify them 
 			here -->
 		<!-- <security:port-mappings> <security:port-mapping http="8080" https="8443"/> 
@@ -34,6 +35,8 @@
 			login-processing-url="/login.do" default-target-url="/home"
 			authentication-failure-url="/login?err=1" username-parameter="username"
 			password-parameter="password" />
+			
+		<security:logout logout-success-url="/logout" logout-url= "/doLogout"/>
 		<!-- Implemented with Web based URL - Controller "METHOD" level authorization -->
 		<!-- the more specific rules need to come first, followed by the more general 
 			ones. -->

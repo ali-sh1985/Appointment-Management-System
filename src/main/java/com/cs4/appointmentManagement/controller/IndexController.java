@@ -11,4 +11,9 @@ public class IndexController {
 	public String getIndexPage() {
 		return "index";
 	}
+	
+	@RequestMapping(value="/home", method=RequestMethod.GET)
+	public String getHomePage() {
+		return "home";
+	}
 }

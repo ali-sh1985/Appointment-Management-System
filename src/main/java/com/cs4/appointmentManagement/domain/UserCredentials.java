@@ -27,10 +27,10 @@ public class UserCredentials {
 	@Column(name = "USERNAME", nullable = false, unique = true, length = 127)
 	private String userName;
 	
-	@Column(name = "PASSWORD", nullable = false, length = 32)
+	@Column(name = "PASSWORD", nullable = false, length = 256)
 	private String password;
 	
-	@Column(nullable = false, length = 32)
+	@Column(nullable = false, length = 256)
 	private String verifyPassword;
 	
 	@Column(name="ENABLED")
@@ -41,8 +41,8 @@ public class UserCredentials {
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "credential_authority", joinColumns = {
-			@JoinColumn(name = "credential_id") }, inverseJoinColumns = {
-					@JoinColumn(name = "authority_id", unique = true) })
+			@JoinColumn(name = "CREDENTIAL_ID") }, inverseJoinColumns = {
+					@JoinColumn(name = "AUTHORITY_ID", unique = true) })
 	private List<Authority> authority = new ArrayList<Authority>();
 
 	public String getUserName() {
