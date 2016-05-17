@@ -10,7 +10,8 @@
 	<!-- enable Method level [vs URL level] authorization This work for APPLICATION 
 		Level scanned components Does NOT recognize WEB level components - for THAT 
 		need to place enable line in Dispatcher-servlet -->
-	<security:global-method-security pre-post-annotations="enabled" />
+	<security:global-method-security
+		pre-post-annotations="enabled" />
 
 	<!-- security:http enables security filter mechanism...name space configuration 
 		is activated -->
@@ -29,7 +30,10 @@
 		<!-- <security:access-denied-handler error-page="/error-forbidden" /> <security:access-denied-handler 
 			ref="controllerExceptionHandler" /> -->
 
-		<security:form-login />
+		<security:form-login login-page="/login"
+			login-processing-url="/login.do" default-target-url="/home"
+			authentication-failure-url="/login?err=1" username-parameter="username"
+			password-parameter="password" />
 		<!-- Implemented with Web based URL - Controller "METHOD" level authorization -->
 		<!-- the more specific rules need to come first, followed by the more general 
 			ones. -->
@@ -80,19 +84,17 @@
 	<!-- </security:authentication-provider> -->
 	<!-- </security:authentication-manager> -->
 
-	<!-- <security:authentication-manager> <security:authentication-provider 
-		ref="customAuth"> </security:authentication-provider> </security:authentication-manager> -->
-
+	<bean id="userAuthBean" class="com.cs4.appointmentManagement.security.UserAuthenticator" />
 	<security:authentication-manager>
-		<security:authentication-provider>
-			<security:password-encoder hash="bcrypt" />
-			<security:user-service>
-				<security:user name="admin" password="admin"
-					authorities="ROLE_ADMIN" />
-				<security:user name="guest" password="guest"
-					authorities="ROLE_USER" />
-			</security:user-service>
+		<security:authentication-provider
+			ref="userAuthBean">
 		</security:authentication-provider>
 	</security:authentication-manager>
+
+	<!-- <security:authentication-manager> <security:authentication-provider> 
+		<security:password-encoder hash="bcrypt" /> <security:user-service> <security:user 
+		name="admin" password="admin" authorities="ROLE_ADMIN" /> <security:user 
+		name="guest" password="guest" authorities="ROLE_USER" /> </security:user-service> 
+		</security:authentication-provider> </security:authentication-manager> -->
 
 </beans>

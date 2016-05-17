@@ -5,53 +5,49 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
+
 import com.cs4.appointmentManagement.dao.GenericDao;
 
-
-/*@SuppressWarnings("unchecked")
-@Repository*/
-public abstract class GenericDaoImpl<T> implements GenericDao<T> {
+@Repository
+public class GenericDaoImpl<T> implements GenericDao<T>{
 
 	@PersistenceContext
-    protected EntityManager entityManager;
-
-    protected Class<T> daoType;
-
-	public void setDaoType(Class<T> type) {
-			daoType = type;
+	protected EntityManager entityManager;
+	
+	protected Class<T> daoType;
+	
+	public void setDaoType(Class<T> daoType) {
+		this.daoType = daoType;
 	}
-   
-    @Override
-    public void save( T entity ){
-        entityManager.persist( entity );
-     }
 
-    public void delete( T entity ){
-        entityManager.remove( entity );
-     }
+	@Override
+	public void save(T t) {
+		entityManager.persist(t);
+	}
+	
+	public void delete(T t) {
+		entityManager.remove(t);
+	}
 
 	@Override
 	public void delete(Long id) {
-        T entity = findOne( id );
-        delete( entity );  
-    }
+		T entity = findOne(id);
+		delete(entity);
+	}
 
 	@Override
-	public T findOne( Long id ){
-	    return (T) entityManager.find( daoType, id );
-	 }
-	
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<T> findAll(){
-		      return entityManager.createQuery( "from " + daoType.getName() )
-		       .getResultList();
-		   }
-	
-	@Override
-	public T update( T entity ){
-	      return entityManager.merge( entity );
-	   }
+	public T findOne(Long id) {
+		return (T) entityManager.find(daoType, id);
+	}
 
+	@Override
+	public T update(T t) {
+		return (T) entityManager.merge(t);
+	}
 
- }
+	@Override
+	public List<T> findAll() {
+		return entityManager.createQuery("FROM "+daoType.getName()).getResultList();
+	}
+}

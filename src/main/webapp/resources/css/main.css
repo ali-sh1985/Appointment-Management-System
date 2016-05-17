@@ -1,0 +1,118 @@
+@import url(https://fonts.googleapis.com/css?family=Catamaran);
+@import url(https://fonts.googleapis.com/css?family=Caveat);
+html, body {padding: 0px; margin: 0px; font-family: 'Catamaran', sans-serif; height: 100%;}
+
+.header, .footer {background-color: #000; padding-top: 10px; text-align: center; color: #fff; }
+a {
+	text-decoration: none;
+	color: #000;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.redcolor{color: #D3242B}
+
+
+.header{color: #fff;}
+.header > h1{font-size: 22px; font-family: 'Caveat', cursive;}
+.header h1 > span {font-size: 20px;}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul li {
+    float: left;
+}
+
+ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+ul li.right{float: right;}
+
+.content{
+	padding: 10px;
+	margin-bottom: 10px;
+	/*min-height: 500px;*/
+}
+
+.main{
+	/*height: inherit;*/
+}
+
+.loginContainer{ text-align: center; height: 300px; }
+.loginbox{width: 300px; border: 1px solid #000; margin: auto auto;}
+.loginbox .row{height: 35px; padding: 5px; margin-top: 5px; margin-bottom: 5px;}
+.loginbox .row > label{ display:inline-block; display: inline-block; width: 100px; color: #4CAF50; font-weight: bold; }
+.loginbox input[type="submit"]{ background-color: #4CAF50; color: #fff; padding: 10px; }
+.loginbox input[type="text"], .loginbox input[type="password"]{padding: 3px; border: 1px #ccc solid; border-radius: 5%;}
+.search{
+    padding: 5px;
+    border-radius: 25px;
+    margin: 12px;
+}
+
+
+.content .main{ float: left; width: 940px; }
+.content .sidebar{float: right; width: 200px; border-left: solid 2px #4CAF50;}
+.content > h1 {
+	border-bottom: solid 2px #4CAF50;
+}
+
+ol{	list-style: none; }
+
+
+
+
+/*search css*/
+.userpic{
+	height: 50px;
+	width: 50px;
+	border-radius: 25%;
+}
+
+
+.userpicBig{
+	height: 100px;
+	width: 100px;
+	border-radius: 25%;
+}
+
+
+hr{ border-bottom: 2px solid #4CAF50; width: 100%; }
+
+.lists{ float: left; width: 1020px; min-height: 50px; margin: 5px; padding: 10px; border: 1px solid #000;}
+.lists > p > a {color: #4CAF50; font-weight: bold;}
+.lists > p > a.readmore {color: #4CAF50; float: right; font-size: 14px;}
+
+.imagesection{float: left; width: 70px; padding: 10px;}
+.detailsection{ float: left; padding: 10px; width: 80%; }
+.detailsection span.name a {color: #4CAF50 !important; font-weight: bold; font-size: 18px; padding: 0px;}
+.imagesectionProfile{float: left; width: 120px; padding: 10px;}
+
+/*footer*/
+/*.footer{ padding: 10px; bottom: 0px;}*/
+.footer{
+	position: relative;
+  	/*margin-top: -180px;*/
+  	padding: 10px;
+  	clear:both;
+}
