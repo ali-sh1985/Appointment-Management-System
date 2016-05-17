@@ -43,16 +43,11 @@ public class GenericDaoImpl<T> implements GenericDao<T>{
 
 	@Override
 	public T update(T t) {
-		// TODO Auto-generated method stub
-		return null;
+		return (T) entityManager.merge(t);
 	}
 
 	@Override
 	public List<T> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createQuery("FROM "+daoType.getName()).getResultList();
 	}
-
-	
-
 }

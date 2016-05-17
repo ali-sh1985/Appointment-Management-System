@@ -26,9 +26,12 @@ public class UserAuthenticator implements AuthenticationProvider {
 	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+		System.out.println("authenticate()");
+		System.out.println(authentication.getName());
 		User user = userService.findByUsername(authentication.getName());
 		String encryptedPassword = encryptService.encrypt(authentication.getCredentials().toString());
-		
+		System.out.println("enc="+encryptedPassword);
+		System.out.println("dbPass="+user.getUserCredentials().getPassword());
 		if(user == null)
 			return null;
 		
