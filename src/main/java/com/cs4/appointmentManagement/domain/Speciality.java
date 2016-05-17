@@ -18,6 +18,6 @@ public class Speciality {
 	@Column(name="Specialty_Name")
 	private String name;
 	
-	@OneToMany(mappedBy = "specialty")
+	@OneToMany(mappedBy = "speciality")
 	private List<Doctor> doctors;
 }
