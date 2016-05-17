@@ -21,6 +21,7 @@ public class SpecialityServiceImpl implements SpecialityService {
 	public void save(Speciality speciality) {
 		specialityDao.save(speciality);
 	}
+	
 
 	@Override
 	public void delete(Long id) {
