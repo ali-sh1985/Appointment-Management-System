@@ -1,5 +1,7 @@
 package com.cs4.appointmentManagement.dao.impl;
 
+import java.util.List;
+
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
@@ -19,6 +21,14 @@ public class UseDaoImpl extends GenericDaoImpl<User> implements UserDao{
 				+ "c.userName = :username)");
 		query.setParameter("username", username);
 		return (User) query.getSingleResult();
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> search(String name) {
+		Query query = entityManager.createQuery("SELECT u FROM "+daoType.getName()+" u WHERE u.fname like :name OR u.lname like :name");
+		query.setParameter("name", "%"+name+"%");
+		return (List<User>) query.getResultList();
 	}
 	
 	

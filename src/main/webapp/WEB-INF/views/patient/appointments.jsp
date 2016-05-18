@@ -21,7 +21,7 @@
 		  <li><a href="profile.html">List</a></li>
 		  <li class="right"><a href="#about">Login</a></li>
 		  <li class="right">
-		  	<form> <input type="text" class="search" placeholder="Search..."></input></form>
+		  	<form action="../search" method="post"> <input name="query" type="text" class="search" placeholder="Search..."></input></form>
 		  </li>
 		  
 		</ul>
@@ -43,17 +43,17 @@
 							<c:choose>
 								<c:when test="${today gt appointment.dateTime}">
 								<i class="fa fa-heartbeat redcolor" aria-hidden="true"></i>&nbsp;
-								<a href="/p/1">You</a> 
+								<a href="profile/${appointment.patient.id}">You</a> 
 									had
 								</c:when>
 								<c:otherwise>
 								<i class="fa fa-heartbeat greencolor" aria-hidden="true"></i> &nbsp;
-								<a href="/p/1">You</a> 
+								<a href="profile/${appointment.patient.id}">You</a>  
 									have 
 								</c:otherwise>
 							</c:choose>
 							a appointment with
-							<a href="doctor/profile/${appointment.doctor.id}">
+							<a href="../doctor/profile/${appointment.doctor.id}">
 								<i class="fa fa-stethoscope" aria-hidden="true"></i>
 								${appointment.doctor.firstName}, ${appointment.doctor.lastName}
 							</a> on <fmt:formatDate type="both" value="${appointment.dateTime}" />
@@ -79,10 +79,8 @@
 		<!-- side bar -->
 		<div class="sidebar">
 			<ol>
-			  <li><a href="#home">New Requests</a></li>
-			  <li><a href="#news">My Patients</a></li>
-			  <li><a href="#contact">Calender</a></li>
-			  <li><a href="#about">Annual Report</a></li>
+				<li><i class="fa fa-clock-o greencolor" aria-hidden="true"></i><a href="">My Appointments</a></li>
+				<li><i class="fa fa-user greencolor" aria-hidden="true"></i><a href="profile/${appointments[0].patient.id}">My Profile</a></li>
 			</ol>
 		</div>
 	</div>

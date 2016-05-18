@@ -1,5 +1,7 @@
 package com.cs4.appointmentManagement.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +26,15 @@ public class UserServiceImpl implements UserService {
 		userDao.save(user);
 		
 	}
+
+
+	@Override
+	public List<User> search(String name) {
+		return (List<User>) userDao.search(name);
+	}
+
+
+	
 	
 	
 }

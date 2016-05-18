@@ -81,7 +81,9 @@ ul li.right{float: right;}
 .registerbox input[type="email"], .registerbox input[type="text"], .registerbox input[type="password"],select{padding: 10px; border: 0; border-bottom: 1px solid #4CAF50; position: relative; z-index: 2; margin: 0 5px; transition: border-color 300ms;}
 
 .content .main{ float: left; width: 940px; }
-.content .sidebar{float: right; width: 200px; border-left: solid 2px #4CAF50;}
+.content .sidebar{float: right; width: 200px; border-left: solid 2px #4CAF50; min-height:400px;}
+.sidebar ol{padding-left: 10px;}
+.sidebar a {color: #4CAF50;font-weight: bold; font-size: 14px;}
 .content > h1 {
 	border-bottom: solid 2px #4CAF50;
 }

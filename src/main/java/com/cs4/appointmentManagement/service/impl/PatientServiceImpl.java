@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cs4.appointmentManagement.dao.PatientDao;
+import com.cs4.appointmentManagement.domain.Doctor;
 import com.cs4.appointmentManagement.domain.Patient;
 import com.cs4.appointmentManagement.service.PatientService;
 
@@ -39,5 +40,20 @@ public class PatientServiceImpl implements PatientService{
 	@Override
 	public List<Patient> findAll() {
 		return (List<Patient>)patientDao.findAll();
+	}
+
+	@Override
+	public int totalAppointmentPast(Long id) {
+		return patientDao.totalAppointmentPast(id);
+	}
+
+	@Override
+	public int totalAppointmentFuture(Long id) {
+		return patientDao.totalAppointmentFuture(id);
+	}
+
+	@Override
+	public List<Doctor> getMyDoctors(Long id) {
+		return patientDao.getMyDoctors(id);
 	}
 }

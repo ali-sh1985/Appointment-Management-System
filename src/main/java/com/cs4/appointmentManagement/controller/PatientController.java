@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cs4.appointmentManagement.domain.User;
 import com.cs4.appointmentManagement.service.AppointmentService;
+import com.cs4.appointmentManagement.service.PatientService;
 
 @Controller
 @RequestMapping("/p")
@@ -16,6 +17,9 @@ public class PatientController {
 
 	@Autowired
 	AppointmentService appointmentService;
+	
+	@Autowired
+	PatientService patientService;
 	
 	@RequestMapping(value = {"/", "/home"})
 	public String listAppointments(Model model){
@@ -30,6 +34,15 @@ public class PatientController {
 	public String appointmentDetail(Model model, @PathVariable Long appointmentId){
 		model.addAttribute("appointment", appointmentService.findOne(appointmentId));
 		return "patient/appointmentDetail";
+	}
+	
+	@RequestMapping(value="/profile/{patientID}")
+	public String myProfile(Model model, @PathVariable Long patientID){
+		model.addAttribute("profile", patientService.findOne(patientID));
+		model.addAttribute("past", patientService.totalAppointmentPast(patientID));
+		model.addAttribute("future", patientService.totalAppointmentFuture(patientID));
+		model.addAttribute("doctors", patientService.getMyDoctors(patientID));
+		return "patient/profile";
 	}
 	
 	
