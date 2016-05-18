@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Speciality {
+public class Specialty {
 	@Id
 	@GeneratedValue
 	private Long Id;
@@ -17,7 +17,7 @@ public class Speciality {
 	@Column(name="Specialty_Name")
 	private String name;
 	
-	@OneToMany(mappedBy = "speciality")
+	@OneToMany(mappedBy = "specialty")
 	private List<Doctor> doctors;
 	
 	public Long getId() {

@@ -27,7 +27,7 @@ public class Doctor extends User {
 	private String lastName;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	private Speciality speciality;
+	private Specialty specialty;
 	
 	@ManyToMany(mappedBy = "doctors")
 	private List<Patient> patients;
@@ -53,12 +53,12 @@ public class Doctor extends User {
 		this.lastName = lastName;
 	}
 
-	public Speciality getSpeciality() {
-		return speciality;
+	public Specialty getSpecialty() {
+		return specialty;
 	}
 
-	public void setSpeciality(Speciality speciality) {
-		this.speciality = speciality;
+	public void setSpecialty(Specialty specialty) {
+		this.specialty = specialty;
 	}
 
 	public List<Patient> getPatients() {
@@ -79,7 +79,7 @@ public class Doctor extends User {
 
 	@Override
 	public String toString() {
-		return "Doctor [firstName=" + firstName + ", lastName=" + lastName + ", speciality=" + speciality
+		return "Doctor [firstName=" + firstName + ", lastName=" + lastName + ", specialty=" + specialty
 				+ ", patients=" + patients + ", appointmentsList=" + appointmentsList + "]";
 	}
 	
