@@ -32,54 +32,6 @@ public class Doctor extends User {
 	
 	@OneToMany(mappedBy = "doctor")
 	private List<Appointment> appointmentsList;
-
-	
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public Specialty getSpecialty() {
-		return specialty;
-	}
-
-	public void setSpecialty(Specialty specialty) {
-		this.specialty = specialty;
-	}
-
-	public List<Patient> getPatients() {
-		return patients;
-	}
-
-	public void setPatients(List<Patient> patients) {
-		this.patients = patients;
-	}
-
-	public List<Appointment> getAppointmentsList() {
-		return appointmentsList;
-	}
-
-	public void setAppointmentsList(List<Appointment> appointmentsList) {
-		this.appointmentsList = appointmentsList;
-	}
-
-	@Override
-	public String toString() {
-		return "Doctor [firstName=" + firstName + ", lastName=" + lastName + ", specialty=" + specialty
-				+ ", patients=" + patients + ", appointmentsList=" + appointmentsList + "]";
-	}
 	
 	
 	public Doctor() {}
@@ -111,12 +63,12 @@ public class Doctor extends User {
 		this.lastName = lastName;
 	}
 
-	public Speciality getSpeciality() {
-		return speciality;
+	public Specialty getSpecialty() {
+		return specialty;
 	}
 
-	public void setSpeciality(Speciality speciality) {
-		this.speciality = speciality;
+	public void setSpeciality(Specialty specialty) {
+		this.specialty = specialty;
 	}
 
 	public List<Patient> getPatients() {
@@ -136,7 +88,7 @@ public class Doctor extends User {
 	}
 
 	public String getAsString() {
-		return "Doctor [firstName=" + firstName + ", lastName=" + lastName + ", speciality=" + speciality
+		return "Doctor [firstName=" + firstName + ", lastName=" + lastName + ", specialty=" + specialty
 				+ ", patients=" + patients + ", appointmentsList=" + appointmentsList + "]";
 	}	
 	
