@@ -49,6 +49,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 	@Override
 	public List<Appointment> findByDoctorId(Long id) {
 		return (List<Appointment>) appointmentDao.findByDoctorId(id);
+	}
 
 	@Override
 	public List<Appointment> getAppointmentsByUserID(Long id) {
