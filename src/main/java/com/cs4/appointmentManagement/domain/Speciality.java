@@ -10,7 +10,6 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Speciality {
-
 	@Id
 	@GeneratedValue
 	private Long Id;
@@ -20,4 +19,33 @@ public class Speciality {
 	
 	@OneToMany(mappedBy = "speciality")
 	private List<Doctor> doctors;
+	
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Doctor> getDoctors() {
+		return doctors;
+	}
+
+	public void setDoctors(List<Doctor> doctors) {
+		this.doctors = doctors;
+	}
+	
+	@Override
+	public String toString() {
+		return "Speciality [Id=" + Id + ", name=" + name + ", doctors=" + doctors + "]";
+	}
 }
