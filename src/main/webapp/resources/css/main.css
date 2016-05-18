@@ -12,6 +12,7 @@ a {
 }
 
 .redcolor{color: #D3242B}
+.greencolor{color: #4CAF50}
 
 
 .header{color: #fff;}
@@ -104,6 +105,10 @@ ol{	list-style: none; }
 	border-radius: 25%;
 }
 
+.patient a{
+	padding: 0px;
+	font-weight: normal !important;
+}
 
 hr{ border-bottom: 2px solid #4CAF50; width: 100%; }
 

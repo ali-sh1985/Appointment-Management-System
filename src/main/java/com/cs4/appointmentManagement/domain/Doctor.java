@@ -35,13 +35,7 @@ public class Doctor extends User {
 	@OneToMany(mappedBy = "doctor")
 	private List<Appointment> appointmentsList;
 
-	public Long getId() {
-		return Id;
-	}
-
-	public void setId(Long id) {
-		Id = id;
-	}
+	
 
 	public String getFirstName() {
 		return firstName;
@@ -85,7 +79,7 @@ public class Doctor extends User {
 
 	@Override
 	public String toString() {
-		return "Doctor [Id=" + Id + ", firstName=" + firstName + ", lastName=" + lastName + ", speciality=" + speciality
+		return "Doctor [firstName=" + firstName + ", lastName=" + lastName + ", speciality=" + speciality
 				+ ", patients=" + patients + ", appointmentsList=" + appointmentsList + "]";
 	}
 	
