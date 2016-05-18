@@ -1,6 +1,9 @@
 package com.cs4.appointmentManagement.service.impl;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> 9f081c6764fc61333d32e9406ae8335e14bc79c5
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +56,15 @@ public class UserServiceImpl implements UserService {
 		
 		userDao.save(createUserStub(userToSave, role));
 	}
+
+
+	@Override
+	public List<User> search(String name) {
+		return (List<User>) userDao.search(name);
+	}
+
+
+	
 	
 	private User createUserStub(User user, String role) {
 		UserCredentials userCredentials = new UserCredentials();
