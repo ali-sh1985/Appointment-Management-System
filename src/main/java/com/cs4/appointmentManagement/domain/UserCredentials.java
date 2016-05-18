@@ -16,9 +16,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.cs4.appointmentManagement.service.UserCredentialsService;
+
 @Entity
 @Table(name="CREDENTIALS")
 public class UserCredentials {
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="CREDENTIAL_ID")
@@ -58,6 +62,7 @@ public class UserCredentials {
 	}
 
 	public void setPassword(String password) {
+		
 		this.password = password;
 	}
 

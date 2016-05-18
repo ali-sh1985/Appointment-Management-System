@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cs4.appointmentManagement.dao.UserCredentialsDao;
+import com.cs4.appointmentManagement.domain.Authority;
 import com.cs4.appointmentManagement.domain.User;
 import com.cs4.appointmentManagement.domain.UserCredentials;
 import com.cs4.appointmentManagement.service.UserCredentialsService;
@@ -18,7 +19,7 @@ public class UserCredentialsServiceImpl implements UserCredentialsService {
 	
 	@Override
 	public void save(UserCredentials userCredentials) {
-		// TODO Auto-generated method stub
+	usercredentialsDao.save(userCredentials);
 		
 	}
 
@@ -44,11 +45,17 @@ public class UserCredentialsServiceImpl implements UserCredentialsService {
 	public List<UserCredentials> findAll() {
 		// TODO Auto-generated method stub
 		return null;
+		
 	}
 
 	@Override
 	public UserCredentials findByUsername(String username) {
 		return (UserCredentials) usercredentialsDao.findByUsername(username);
+	}
+	
+	@Override
+	public List<Authority> getAllAuthorities(){
+		return (List<Authority>) usercredentialsDao.getAllAuthorities();
 	}
 	
 }

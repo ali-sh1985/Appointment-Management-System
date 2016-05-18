@@ -5,5 +5,6 @@ import com.cs4.appointmentManagement.domain.User;
 
 public interface UserService {
 	public User findByUsername(String username);
+	public void save(User user);
 
 }

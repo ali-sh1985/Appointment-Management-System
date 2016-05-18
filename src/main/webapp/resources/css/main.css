@@ -51,25 +51,33 @@ ul li.right{float: right;}
 .content{
 	padding: 10px;
 	margin-bottom: 10px;
-	/*min-height: 500px;*/
+	min-height: 500px;
 }
 
 .main{
 	/*height: inherit;*/
 }
 
-.loginContainer{ text-align: center; height: 300px; }
+.registerbox input:focus, .registerbox input:focus{
+    outline: none;
+}
+
+.loginContainer{ text-align: center; height: 360px; }
 .loginbox{width: 300px; border: 1px solid #000; margin: auto auto;}
 .loginbox .row{height: 35px; padding: 5px; margin-top: 5px; margin-bottom: 5px;}
 .loginbox .row > label{ display:inline-block; display: inline-block; width: 100px; color: #4CAF50; font-weight: bold; }
-.loginbox input[type="submit"]{ background-color: #4CAF50; color: #fff; padding: 10px; }
-.loginbox input[type="text"], .loginbox input[type="password"]{padding: 3px; border: 1px #ccc solid; border-radius: 5%;}
+.loginbox input[type="submit"], .registerbox input[type="submit"]{ background-color: #4CAF50; color: #fff; padding: 10px; }
+.loginbox input[type="email"], .loginbox input[type="text"], .loginbox input[type="password"]{padding: 3px; border: 1px #ccc solid; border-radius: 5%;}
 .search{
     padding: 5px;
     border-radius: 25px;
     margin: 12px;
+    outline-offset: -2px;
 }
 
+::placeholder{font-size: 12px;}
+.registerbox {width: 900px; border: 1px solid #000; margin: auto auto; min-height:300px;}
+.registerbox input[type="email"], .registerbox input[type="text"], .registerbox input[type="password"],select{padding: 10px; border: 0; border-bottom: 1px solid #4CAF50; position: relative; z-index: 2; margin: 0 5px; transition: border-color 300ms;}
 
 .content .main{ float: left; width: 940px; }
 .content .sidebar{float: right; width: 200px; border-left: solid 2px #4CAF50;}
@@ -112,7 +120,7 @@ hr{ border-bottom: 2px solid #4CAF50; width: 100%; }
 /*.footer{ padding: 10px; bottom: 0px;}*/
 .footer{
 	position: relative;
-  	/*margin-top: -180px;*/
+  	/*  margin-top: 200px;*/
   	padding: 10px;
   	clear:both;
 }
