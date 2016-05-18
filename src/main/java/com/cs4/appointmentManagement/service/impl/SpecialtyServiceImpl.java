@@ -6,20 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cs4.appointmentManagement.dao.SpecialityDao;
-import com.cs4.appointmentManagement.domain.Speciality;
+import com.cs4.appointmentManagement.dao.SpecialtyDao;
+import com.cs4.appointmentManagement.domain.Specialty;
 import com.cs4.appointmentManagement.service.SpecialityService;
 
 @Service
 @Transactional
-public class SpecialityServiceImpl implements SpecialityService {
+public class SpecialtyServiceImpl implements SpecialityService {
 
 	@Autowired
-	private SpecialityDao specialityDao;
+	private SpecialtyDao specialityDao;
 	
 	@Override
-	public void save(Speciality speciality) {
-		specialityDao.save(speciality);
+	public void save(Specialty specialty) {
+		specialityDao.save(specialty);
 	}
 	
 
@@ -29,17 +29,17 @@ public class SpecialityServiceImpl implements SpecialityService {
 	}
 
 	@Override
-	public Speciality findOne(Long id) {
+	public Specialty findOne(Long id) {
 		return specialityDao.findOne(id);
 	}
 
 	@Override
-	public Speciality update(Speciality speciality) {
-		return specialityDao.update(speciality);
+	public Specialty update(Specialty specialty) {
+		return specialityDao.update(specialty);
 	}
 
 	@Override
-	public List<Speciality> findAll() {
-		return (List<Speciality>)specialityDao.findAll();
+	public List<Specialty> findAll() {
+		return (List<Specialty>)specialityDao.findAll();
 	}
 }
