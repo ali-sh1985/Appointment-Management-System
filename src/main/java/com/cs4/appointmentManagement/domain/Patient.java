@@ -33,4 +33,49 @@ public class Patient extends User {
 	
 	@OneToMany(mappedBy = "patient")
 	private List<Appointment> appointmentsList;
+	
+	public Patient() {}
+	
+	public Patient(User user) {
+		super.setFname(user.getFname());
+		super.setLname(user.getLname());
+		super.setStreet(user.getStreet());
+		super.setCity(user.getCity());
+		super.setState(user.getState());
+		super.setEmail(user.getEmail());
+		super.setUserCredentials(user.getUserCredentials());
+		super.setUserType(user.getUserType());
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public List<Doctor> getDoctors() {
+		return doctors;
+	}
+
+	public void setDoctors(List<Doctor> doctors) {
+		this.doctors = doctors;
+	}
+
+	public List<Appointment> getAppointmentsList() {
+		return appointmentsList;
+	}
+
+	public void setAppointmentsList(List<Appointment> appointmentsList) {
+		this.appointmentsList = appointmentsList;
+	}
 }
