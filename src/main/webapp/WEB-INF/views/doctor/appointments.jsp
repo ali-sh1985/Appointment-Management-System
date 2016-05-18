@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
 			CS4 - <span>there is nothing at the top but lets do it</span>
 		</h1>
 		<ul>
-			<li><a href="../">Home</a></li>
+			<li><a href="../../..">Home</a></li>
 			<li><a class="active" href="list">Doctors</a></li>
 			<li><a href="profile.html">Profile</a></li>
 			<li><a href="appointment.html">Appointment</a></li>
@@ -50,7 +51,7 @@
 								</c:when>
 								<c:otherwise>
 								<i class="fa fa-heartbeat greencolor" aria-hidden="true"></i> &nbsp;
-								<a href="/p/1">You</a> 
+								<a href="../../profile/${doctor.id}">You</a> 
 									have 
 								</c:otherwise>
 							</c:choose>
@@ -58,8 +59,8 @@
 							<a href="doctor/profile/${appointment.patient.id}">
 								<i class="fa fa-stethoscope" aria-hidden="true"></i>
 								${appointment.patient.firstName}, ${appointment.patient.lastName}
-							</a> on <fmt:formatDate type="both" value="${appointment.dateTime}" />
-							<a href="a/${appointment.id}" class="readmore" href="#">View Details</a>
+							</a> on <fmt:formatDate pattern="yyyy-MMM-dd hh:MM" type="both" value="${appointment.dateTime}" />
+							<a href="doctor/profule/${doctor.id}" class="readmore" href="#">View Details</a>
 						</p>
 					</div>
 					

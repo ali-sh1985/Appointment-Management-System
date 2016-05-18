@@ -48,8 +48,8 @@
 							<span class="name"><a href="profile/${doctor.id}">Dr.
 									${doctor.firstName} ${doctor.lastName}</a></span><br> <span>Specialist
 								: ${doctor.specialty.name}</span><br> <span>Address :
-								1000 N Fairfield Iowa</span><br> <span>Contact : +1 641 451
-								3151</span><br> <span>Email : awesomedr@gmail.com</span>
+								${doctor.street} ${doctor.city} ${doctor.state}</span><br> <span>Contact : +1 641 451
+								3151</span><br> <span>Email : ${doctor.email}</span>
 						</div>
 					</div>
 				</c:forEach>

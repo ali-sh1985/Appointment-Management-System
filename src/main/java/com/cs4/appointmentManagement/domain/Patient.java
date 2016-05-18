@@ -34,8 +34,6 @@ public class Patient extends User {
 	@OneToMany(mappedBy = "patient")
 	private List<Appointment> appointmentsList;
 	
-<<<<<<< HEAD
-=======
 	public Patient() {}
 	
 	public Patient(User user) {
@@ -49,7 +47,6 @@ public class Patient extends User {
 		super.setUserType(user.getUserType());
 	}
 
->>>>>>> 6188b297b6656d34e8366fb0ba9b352ef410053e
 	public String getFirstName() {
 		return firstName;
 	}
