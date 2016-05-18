@@ -21,6 +21,15 @@ public class Authority {
 	
 	@Column(name="AUTHORITY", nullable = false)
 	private String authority;
+	
+	public Authority() {}
+
+	public Authority(String username, String authority) {
+		this.username = username;
+		this.authority = authority;
+	}
+
+
 
 	public long getId() {
 		return id;

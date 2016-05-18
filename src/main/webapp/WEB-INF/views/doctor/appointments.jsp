@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CS4 - Home</title>
-<link rel="stylesheet" type="text/css" href="../resources/css/main.css">
+<title>CS4 - Home</title><spring:url value="/resources/css/main.css" var="cssUrl"></spring:url>
+<link rel="stylesheet" type="text/css" href="${cssUrl}">
 <link rel="stylesheet" type="text/css"
 	href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
 </head>
@@ -36,22 +36,33 @@
 
 		<div class="main">
 			<!-- latest posts related to the user -->
-			<c:if test="${!empty listDoctors}">
-				<c:forEach items="${listDoctors}" var="doctor">
+						<c:if test="${!empty listAppointments}">
+				<c:forEach items="${listAppointments}" var="appointment">
+			
 					<div class="lists">
-						<div class="imagesection">
-							<img
-								src="http://www.keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg"
-								class="userpic" title="doctor" alt="doctor">
-						</div>
-						<div class="detailsection">
-							<span class="name"><a href="profile/${doctor.id}">Dr.
-									${doctor.firstName} ${doctor.lastName}</a></span><br> <span>Specialist
-								: ${doctor.specialty.name}</span><br> <span>Address :
-								1000 N Fairfield Iowa</span><br> <span>Contact : +1 641 451
-								3151</span><br> <span>Email : awesomedr@gmail.com</span>
-						</div>
+						<p>
+							
+							<c:choose>
+								<c:when test="${today gt appointment.dateTime}">
+								<i class="fa fa-heartbeat redcolor" aria-hidden="true"></i>&nbsp;
+								<a href="/p/1">You</a> 
+									had
+								</c:when>
+								<c:otherwise>
+								<i class="fa fa-heartbeat greencolor" aria-hidden="true"></i> &nbsp;
+								<a href="/p/1">You</a> 
+									have 
+								</c:otherwise>
+							</c:choose>
+							a appointment with
+							<a href="doctor/profile/${appointment.patient.id}">
+								<i class="fa fa-stethoscope" aria-hidden="true"></i>
+								${appointment.patient.firstName}, ${appointment.patient.lastName}
+							</a> on <fmt:formatDate type="both" value="${appointment.dateTime}" />
+							<a href="a/${appointment.id}" class="readmore" href="#">View Details</a>
+						</p>
 					</div>
+					
 				</c:forEach>
 			</c:if>
 			<!-- latest posts ends -->

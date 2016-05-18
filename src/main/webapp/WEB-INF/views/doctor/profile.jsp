@@ -38,7 +38,7 @@
 				</div>
 				<div class="detailsection">
 				 	<span class="name"><a href="">Dr. ${doctor.firstName} ${doctor.lastName}</a></span><br>
-				 	<span>Specialist : Gynocologist, Heart Expert</span><br>
+				 	<span>Specialist : ${doctor.specialty.name}</span><br>
 					<span>Address : 1000 N Fairfield Iowa</span><br>
 				 	<span>Contact : +1 641 451 3151</span><br>
 				 	<span>Email : awesomedr@gmail.com</span>
@@ -61,7 +61,7 @@ Pending legal actions do not in any way indicate parties' guilt, liability or cu
 		<!-- side bar -->
 		<div class="sidebar">
 			<ol>
-			  <li><a href="#home">New Requests</a></li>
+			  <li><a href="../profile/${doctor.id}/appointment">New Requests</a></li>
 			  <li><a href="#news">My Patients</a></li>
 			  <li><a href="#contact">Calender</a></li>
 			  <li><a href="#about">Annual Report</a></li>

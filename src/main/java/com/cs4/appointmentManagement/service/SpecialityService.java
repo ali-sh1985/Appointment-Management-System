@@ -2,16 +2,16 @@ package com.cs4.appointmentManagement.service;
 
 import java.util.List;
 
-import com.cs4.appointmentManagement.domain.Speciality;
+import com.cs4.appointmentManagement.domain.Specialty;
 
 public interface SpecialityService {
-	void save(Speciality speciality);
+	void save(Specialty specialty);
 
     void delete(Long id);
 
-    Speciality findOne(Long id);
+    Specialty findOne(Long id);
 
-    Speciality update(Speciality speciality);   
+    Specialty update(Specialty specialty);   
     
-    List<Speciality> findAll();
+    List<Specialty> findAll();
 }
