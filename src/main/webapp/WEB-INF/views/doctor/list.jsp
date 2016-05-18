@@ -47,7 +47,7 @@
 						<div class="detailsection">
 							<span class="name"><a href="profile/${doctor.id}">Dr.
 									${doctor.firstName} ${doctor.lastName}</a></span><br> <span>Specialist
-								: Gynocologist, Heart Expert</span><br> <span>Address :
+								: ${doctor.speciality.name}</span><br> <span>Address :
 								1000 N Fairfield Iowa</span><br> <span>Contact : +1 641 451
 								3151</span><br> <span>Email : awesomedr@gmail.com</span>
 						</div>

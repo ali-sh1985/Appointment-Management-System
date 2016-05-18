@@ -24,7 +24,7 @@ public class Doctor {
 	@Column(name="Last_Name")
 	private String lastName;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Speciality speciality;
 	
 	@ManyToMany(mappedBy = "doctors")
