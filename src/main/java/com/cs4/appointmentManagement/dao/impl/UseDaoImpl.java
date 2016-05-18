@@ -20,4 +20,6 @@ public class UseDaoImpl extends GenericDaoImpl<User> implements UserDao{
 		query.setParameter("username", username);
 		return (User) query.getSingleResult();
 	}
+	
+	
 }

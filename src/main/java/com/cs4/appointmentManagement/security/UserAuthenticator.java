@@ -13,13 +13,15 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import com.cs4.appointmentManagement.domain.Authority;
 import com.cs4.appointmentManagement.domain.User;
+import com.cs4.appointmentManagement.domain.UserCredentials;
 import com.cs4.appointmentManagement.service.EncryptService;
+import com.cs4.appointmentManagement.service.UserCredentialsService;
 import com.cs4.appointmentManagement.service.UserService;
 
 public class UserAuthenticator implements AuthenticationProvider {
 
 	@Autowired
-	private UserService userService;
+	private UserCredentialsService userCredentialsService;
 	
 	@Autowired
 	private EncryptService encryptService;
@@ -28,17 +30,20 @@ public class UserAuthenticator implements AuthenticationProvider {
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		System.out.println("authenticate()");
 		System.out.println(authentication.getName());
-		User user = userService.findByUsername(authentication.getName());
+		UserCredentials userCredentials = userCredentialsService.findByUsername(authentication.getName());
 		String encryptedPassword = encryptService.encrypt(authentication.getCredentials().toString());
 		System.out.println("enc="+encryptedPassword);
-		System.out.println("dbPass="+user.getUserCredentials().getPassword());
-		if(user == null)
+		System.out.println("dbPass="+userCredentials.getPassword());
+		if(userCredentials == null)
 			return null;
 		
-		if(user.getUserCredentials().getPassword().equals(encryptedPassword)) {
+		if(userCredentials.getPassword().equals(encryptedPassword)) {
 			List<GrantedAuthority> grantedAuths = new ArrayList<>();
-			for(Authority authority : user.getUserCredentials().getAuthority())
+			System.out.println(userCredentials.getAuthority().size());
+			for(Authority authority : userCredentials.getAuthority()) {
+				System.out.println("Authority="+authority.getAuthority());
 				grantedAuths.add(new SimpleGrantedAuthority(authority.getAuthority()));
+			}
 			
 			Authentication auth = new UsernamePasswordAuthenticationToken(authentication.getName(),
 					authentication.getCredentials(), grantedAuths);

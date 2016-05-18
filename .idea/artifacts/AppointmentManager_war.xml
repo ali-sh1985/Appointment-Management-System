@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="AppointmentManager:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="AppointmentManager-1.0.0-BUILD-SNAPSHOT.war">
+      <element id="artifact" artifact-name="AppointmentManager:war exploded" />
+    </root>
+  </artifact>
+</component>

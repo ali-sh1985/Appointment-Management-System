@@ -3,6 +3,7 @@ package com.cs4.appointmentManagement.domain;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,11 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Doctor {
+@DiscriminatorValue(value = "doctor")
+public class Doctor extends User {
 	
-	@Id
-	@GeneratedValue
-	private Long Id;
+//	@Id
+//	@GeneratedValue
+//	private Long Id;
 	
 	@Column(name="First_Name")
 	private String firstName;
@@ -33,13 +35,7 @@ public class Doctor {
 	@OneToMany(mappedBy = "doctor")
 	private List<Appointment> appointmentsList;
 
-	public Long getId() {
-		return Id;
-	}
-
-	public void setId(Long id) {
-		Id = id;
-	}
+	
 
 	public String getFirstName() {
 		return firstName;
@@ -83,7 +79,7 @@ public class Doctor {
 
 	@Override
 	public String toString() {
-		return "Doctor [Id=" + Id + ", firstName=" + firstName + ", lastName=" + lastName + ", speciality=" + speciality
+		return "Doctor [firstName=" + firstName + ", lastName=" + lastName + ", speciality=" + speciality
 				+ ", patients=" + patients + ", appointmentsList=" + appointmentsList + "]";
 	}
 	

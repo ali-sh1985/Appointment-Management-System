@@ -11,22 +11,22 @@ import com.cs4.appointmentManagement.domain.Appointment;
 import com.cs4.appointmentManagement.service.AppointmentService;
 
 @Service
-@Transactional 
+@Transactional
 public class AppointmentServiceImpl implements AppointmentService {
 
 	@Autowired
 	private AppointmentDao appointmentDao;
-	
+
 	@Override
 	public void save(Appointment appointment) {
 		appointmentDao.save(appointment);
-		
+
 	}
 
 	@Override
 	public void delete(Long id) {
 		appointmentDao.delete(id);
-		
+
 	}
 
 	@Override
@@ -49,6 +49,11 @@ public class AppointmentServiceImpl implements AppointmentService {
 	@Override
 	public List<Appointment> findByDoctorId(Long id) {
 		return (List<Appointment>) appointmentDao.findByDoctorId(id);
+
+	@Override
+	public List<Appointment> getAppointmentsByUserID(Long id) {
+		return (List<Appointment>) appointmentDao.getAppointmentsByUserID(id);
+
 	}
 
 }

@@ -5,5 +5,7 @@ import java.util.List;
 import com.cs4.appointmentManagement.domain.Appointment;
 
 public interface AppointmentDao extends GenericDao<Appointment> {
-	List<Appointment> findByDoctorId(Long id);
+	
+	public List<Appointment> findByDoctorId(Long id);
+	public List<Appointment> getAppointmentsByUserID(Long id);
 }
