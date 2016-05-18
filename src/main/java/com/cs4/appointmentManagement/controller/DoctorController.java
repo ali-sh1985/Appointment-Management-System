@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cs4.appointmentManagement.service.AppointmentService;
 import com.cs4.appointmentManagement.service.DoctorService;
 
 @Controller
@@ -15,6 +16,9 @@ public class DoctorController {
 	@Autowired
 	private DoctorService doctorService;
 	
+	@Autowired
+	private AppointmentService appointmentService;
+	
 	@RequestMapping(value={"/","/list"})
 	private String listDoctors(Model model) {
 		model.addAttribute("listDoctors", this.doctorService.findAll());
@@ -23,7 +27,15 @@ public class DoctorController {
 	
 	@RequestMapping(value={"/profile/{doctorId}"})
 	private String showProfile(Model model, @PathVariable Long doctorId) {
-		model.addAttribute("doctor", this.doctorService.findOne(doctorId));
+		model.addAttribute("doctor", this.doctorService.findOne(doctorId));		
 		return "doctor/profile";
+	}
+	
+	@RequestMapping(value={"/profile/{doctorId}/appointment"})
+	private String showAppointments(Model model, @PathVariable Long doctorId) {
+		model.addAttribute("doctor", this.doctorService.findOne(doctorId));
+		model.addAttribute("listAppointments", this.appointmentService.findByDoctorId(doctorId));
+		
+		return "doctor/appointments";
 	}
 }
