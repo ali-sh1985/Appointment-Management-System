@@ -28,12 +28,9 @@ public class UserAuthenticator implements AuthenticationProvider {
 	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-		System.out.println("authenticate()");
 		System.out.println(authentication.getName());
 		UserCredentials userCredentials = userCredentialsService.findByUsername(authentication.getName());
 		String encryptedPassword = encryptService.encrypt(authentication.getCredentials().toString());
-		System.out.println("enc="+encryptedPassword);
-		System.out.println("dbPass="+userCredentials.getPassword());
 		if(userCredentials == null)
 			return null;
 		
@@ -41,7 +38,6 @@ public class UserAuthenticator implements AuthenticationProvider {
 			List<GrantedAuthority> grantedAuths = new ArrayList<>();
 			System.out.println(userCredentials.getAuthority().size());
 			for(Authority authority : userCredentials.getAuthority()) {
-				System.out.println("Authority="+authority.getAuthority());
 				grantedAuths.add(new SimpleGrantedAuthority(authority.getAuthority()));
 			}
 			
