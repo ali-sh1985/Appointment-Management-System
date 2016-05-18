@@ -12,7 +12,7 @@
 		<h1>CS4 - <span>there is nothing at the top but lets do it</span></h1>
 		<ul>
 		  <li><a class="active" href="index.html">Home</a></li>
-		  <li><a href="search.html">Doctors</a></li>
+		  <li><a href="doctor/list">Doctors</a></li>
 		  <li><a href="profile.html">Profile</a></li>
 		  <li><a href="appointment.html">Appointment</a></li>
 		  <li><a href="profile.html">List</a></li>
