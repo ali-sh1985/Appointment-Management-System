@@ -33,7 +33,6 @@ public class Doctor extends User {
 	@OneToMany(mappedBy = "doctor")
 	private List<Appointment> appointmentsList;
 	
-	
 	public Doctor() {}
 	
 	public Doctor(User user) {
@@ -46,7 +45,7 @@ public class Doctor extends User {
 		super.setUserCredentials(user.getUserCredentials());
 		super.setUserType(user.getUserType());
 	}
-
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -86,11 +85,9 @@ public class Doctor extends User {
 	public void setAppointmentsList(List<Appointment> appointmentsList) {
 		this.appointmentsList = appointmentsList;
 	}
-
+	
 	public String getAsString() {
 		return "Doctor [firstName=" + firstName + ", lastName=" + lastName + ", specialty=" + specialty
 				+ ", patients=" + patients + ", appointmentsList=" + appointmentsList + "]";
-	}	
-	
-	
+	}
 }

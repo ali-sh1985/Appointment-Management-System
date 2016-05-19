@@ -50,14 +50,14 @@
 									had
 								</c:when>
 								<c:otherwise>
-								<i class="fa fa-heartbeat greencolor" aria-hidden="true"></i> &nbsp;
+								<i class="fa fa-stethoscope greencolor" aria-hidden="true"></i> &nbsp;
 								<a href="../../profile/${doctor.id}">You</a> 
 									have 
 								</c:otherwise>
 							</c:choose>
 							a appointment with
 							<a href="doctor/profile/${appointment.patient.id}">
-								<i class="fa fa-stethoscope" aria-hidden="true"></i>
+								<i class="fa fa-heartbeat" aria-hidden="true"></i>
 								${appointment.patient.firstName}, ${appointment.patient.lastName}
 							</a> on <fmt:formatDate pattern="yyyy-MMM-dd hh:MM" type="both" value="${appointment.dateTime}" />
 							<a href="doctor/profule/${doctor.id}" class="readmore" href="#">View Details</a>

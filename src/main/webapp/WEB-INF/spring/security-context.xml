@@ -20,7 +20,11 @@
 		<security:csrf disabled="true" />
 
 		<security:intercept-url pattern="/home"
-			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+			access="hasAnyRole('ROLE_DOCTOR', 'ROLE_PATIENT')" />
+		<security:intercept-url pattern="/p/**" 
+			access="hasAnyRole('ROLE_DOCTOR', 'ROLE_PATIENT')"/>
+		<security:intercept-url pattern="/doctor/**" 
+			access="hasAnyRole('ROLE_DOCTOR', 'ROLE_PATIENT')"/>
 			
 		<!-- if non-standard ports for HTTP and/or HTTPS, you can specify them 
 			here -->
@@ -36,7 +40,7 @@
 			authentication-failure-url="/login?err=1" username-parameter="username"
 			password-parameter="password" />
 			
-		<security:logout logout-success-url="/logout" logout-url= "/doLogout"/>
+		<security:logout logout-success-url="/" logout-url= "/logout.do"/>
 		<!-- Implemented with Web based URL - Controller "METHOD" level authorization -->
 		<!-- the more specific rules need to come first, followed by the more general 
 			ones. -->

@@ -21,6 +21,7 @@
     	<param-value>
     		/WEB-INF/spring/application-context.xml
     		/WEB-INF/spring/security-context.xml
+    		/WEB-INF/spring/jms-sender-context.xml
     	</param-value>
     </context-param>
     
