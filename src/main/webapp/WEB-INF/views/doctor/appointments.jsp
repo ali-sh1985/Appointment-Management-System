@@ -16,6 +16,7 @@
 			CS4 - <span>there is nothing at the top but lets do it</span>
 		</h1>
 		<ul>
+		<spring:url value="/" var="home"></spring:url>
 			<li><a href="../../..">Home</a></li>
 			<li><a class="active" href="list">Doctors</a></li>
 			<li><a href="profile.html">Profile</a></li>
@@ -60,7 +61,7 @@
 								<i class="fa fa-heartbeat" aria-hidden="true"></i>
 								${appointment.patient.firstName}, ${appointment.patient.lastName}
 							</a> on <fmt:formatDate pattern="yyyy-MMM-dd hh:MM" type="both" value="${appointment.dateTime}" />
-							<a href="doctor/profule/${doctor.id}" class="readmore" href="#">View Details</a>
+							<a href="${home}doctor/profile/${doctor.id}/appointment/${appointment.id}" class="readmore" href="#">View Details</a>
 						</p>
 					</div>
 					

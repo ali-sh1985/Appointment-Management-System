@@ -38,4 +38,11 @@ public class DoctorController {
 		
 		return "doctor/appointments";
 	}
+	
+	@RequestMapping(value = "/profile/{doctorId}/appointment/{appointmentId}")
+	public String showAppointmentDetail(Model model, @PathVariable Long doctorId, @PathVariable Long appointmentId){
+		model.addAttribute("doctor", doctorService.findOne(doctorId));
+		model.addAttribute("appointment", appointmentService.findOne(appointmentId));
+		return "doctor/appointmentDetails";
+	}
 }

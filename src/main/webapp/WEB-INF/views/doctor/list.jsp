@@ -15,11 +15,12 @@
 			CS4 - <span>there is nothing at the top but lets do it</span>
 		</h1>
 		<ul>
-			<li><a href="../">Home</a></li>
-			<li><a class="active" href="list">Doctors</a></li>
-			<li><a href="profile.html">Profile</a></li>
-			<li><a href="appointment.html">Appointment</a></li>
-			<li><a href="profile.html">List</a></li>
+		<spring:url value="/" var="home"></spring:url>
+			<li><a href="${home}">Home</a></li>
+			<li><a class="active" href="${home}/doctor/list">Doctors</a></li>
+			<li><a href="${home}">Profile</a></li>
+			<li><a href="${home}">Appointment</a></li>
+			<li><a href="${home}">List</a></li>
 			<li class="right"><a href="#about">Login</a></li>
 			<li class="right">
 				<form>
