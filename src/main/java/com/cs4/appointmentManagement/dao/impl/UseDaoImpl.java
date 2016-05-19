@@ -31,5 +31,13 @@ public class UseDaoImpl extends GenericDaoImpl<User> implements UserDao{
 		return (List<User>) query.getResultList();
 	}
 	
+	@Override
+	public Long findUserID(String username){
+		System.out.println("DAO impl : "+username);
+		User u = (User) findByUsername(username);
+		System.out.println("I GOT it : "+u.getId());
+		return (Long)u.getId();
+	}
+	
 	
 }

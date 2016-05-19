@@ -1,9 +1,6 @@
 package com.cs4.appointmentManagement.service.impl;
 
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
->>>>>>> 6188b297b6656d34e8366fb0ba9b352ef410053e
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,5 +76,12 @@ public class UserServiceImpl implements UserService {
 		user.setUserCredentials(userCredentials);
 		
 		return user;
+	}
+
+
+	@Override
+	public Long findUserID(String username) {
+		System.out.println("UService Impl: "+username);
+		return  (Long)userDao.findUserID(username);
 	}
 }

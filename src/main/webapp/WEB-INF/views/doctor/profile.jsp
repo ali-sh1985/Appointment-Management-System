@@ -50,6 +50,10 @@ While the department utilizes a variety of sources of information in checking th
 Consumers are encouraged to consult other sources to verify or obtain additional information about a physician. 
 Pending legal actions do not in any way indicate parties' guilt, liability or culpability. Cases may be dismissed, withdrawn, or settled without payments to plaintiffs. Any disposition to a case may be subject to appeal.
 				 		</p>
+				 		<br>
+				 		<p align="center">
+				 			<a class="aptbutton" href="../../p/bookapt/${doctor.id }"><i class="fa fa-calendar" aria-hidden="true"></i> Take Appointment</a>
+				 		</p>
 				 	</div>
 				</div>
 			</div>
