@@ -7,8 +7,9 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/webapp/WEB-INF/spring/application-context.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/security-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/jms-sender-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/application-context.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/spring-context.xml</config>

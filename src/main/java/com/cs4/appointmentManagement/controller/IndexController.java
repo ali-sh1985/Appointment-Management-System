@@ -1,6 +1,7 @@
 package com.cs4.appointmentManagement.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,7 +16,13 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value="/home", method=RequestMethod.GET)
-	public String getHomePage() {
-		return "home";
+	public String getHomePage(HttpServletRequest request) {
+		if(request.isUserInRole("ROLE_DOCTOR")) {
+			return "redirect:doctor/";
+		} else if(request.isUserInRole("ROLE_PATIENT")) {
+			return "redirect:p/";
+		} else {
+			return "home";
+		}		
 	}
 }

@@ -1,5 +1,7 @@
 package com.cs4.appointmentManagement.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -22,7 +24,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, name="USER_TYPE")
-public class User {
+public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name = "user_id")
