@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,7 @@ import com.cs4.appointmentManagement.domain.Appointment;
 import com.cs4.appointmentManagement.domain.Doctor;
 import com.cs4.appointmentManagement.domain.Patient;
 import com.cs4.appointmentManagement.domain.User;
+import com.cs4.appointmentManagement.jms.MessageSender;
 import com.cs4.appointmentManagement.service.AppointmentService;
 import com.cs4.appointmentManagement.service.DoctorService;
 import com.cs4.appointmentManagement.service.PatientService;
@@ -32,6 +34,10 @@ import com.cs4.appointmentManagement.service.UserService;
 @RequestMapping("/p")
 public class PatientController {
 
+	@Autowired
+	@Qualifier("appointmentJmsSender")
+	private MessageSender appointmentSender;
+	
 	@Autowired
 	AppointmentService appointmentService;
 	
@@ -48,6 +54,7 @@ public class PatientController {
 	public String listAppointments(Model model){
 		model.addAttribute("appointments", appointmentService.getAppointmentsByUserID(getUserID(getPrincipal())));
 		model.addAttribute("user", getPrincipal());
+		model.addAttribute("patientId", getUserID(getPrincipal()));
 		System.out.println("Logged IN username: " + getPrincipal());
 		System.out.println("Logged IN user ID: " + getUserID(getPrincipal()));
 		return "patient/appointments";
@@ -56,6 +63,7 @@ public class PatientController {
 	@RequestMapping(value = "/a/{appointmentId}")
 	public String appointmentDetail(Model model, @PathVariable Long appointmentId){
 		model.addAttribute("appointment", appointmentService.findOne(appointmentId));
+		model.addAttribute("patientId", getUserID(getPrincipal()));
 		return "patient/appointmentDetail";
 	}
 	
@@ -97,6 +105,8 @@ public class PatientController {
 		doc = (Doctor) userService.findUserByID(Long.parseLong(request.getParameter("docid"), 10));
 		
 		appointment.setDoctor(doc);
+
+		appointmentSender.sendMessage(appointment);
 		appointmentService.save(appointment);
 		
 		model.addAttribute("response", "Sucessfully send Appointment request to Dr. "+doc.getFname() + " " +doc.getLastName()+" on "+date.toString());

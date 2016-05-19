@@ -11,6 +11,11 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Specialty implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5207241787755683559L;
+
 	@Id
 	@GeneratedValue
 	private Long Id;

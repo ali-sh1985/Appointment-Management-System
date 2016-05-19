@@ -17,16 +17,13 @@ import com.cs4.appointmentManagement.service.AppointmentService;
 @Transactional
 public class AppointmentServiceImpl implements AppointmentService {
 
-	@Autowired
-	@Qualifier("appointmentJmsSender")
-	private MessageSender appointmentSender;
+	
 	
 	@Autowired
 	private AppointmentDao appointmentDao;
 
 	@Override
 	public void save(Appointment appointment) {
-		appointmentSender.sendMessage(appointment);
 		appointmentDao.save(appointment);
 
 	}

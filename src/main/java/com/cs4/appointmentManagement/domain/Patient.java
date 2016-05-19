@@ -21,6 +21,11 @@ public class Patient extends User {
 //	@GeneratedValue
 //	private Long Id;
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1815053851755273944L;
+
 	@Column(name = "First_Name")
 	private String firstName;
 

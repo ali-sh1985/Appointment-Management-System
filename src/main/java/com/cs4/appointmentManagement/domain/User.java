@@ -25,6 +25,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, name="USER_TYPE")
 public class User implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6224782456090591392L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name = "user_id")

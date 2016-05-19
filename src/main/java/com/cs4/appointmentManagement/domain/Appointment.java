@@ -12,6 +12,11 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Appointment implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1594161114542673925L;
+
 	@Id
 	@GeneratedValue
 	private Long Id;

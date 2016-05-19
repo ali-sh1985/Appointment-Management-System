@@ -23,6 +23,11 @@ public class UserCredentials implements Serializable {
 	
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4649089750714233550L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="CREDENTIAL_ID")

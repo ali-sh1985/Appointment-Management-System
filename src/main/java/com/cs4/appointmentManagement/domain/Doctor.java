@@ -18,6 +18,11 @@ public class Doctor extends User {
 //	@GeneratedValue
 //	private Long Id;
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8537070330002071928L;
+
 	@Column(name="First_Name")
 	private String firstName;
 	
