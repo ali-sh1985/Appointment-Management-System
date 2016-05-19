@@ -1,15 +1,30 @@
 package com.cs4.appointmentManagement.controller;
 
+import java.lang.ProcessBuilder.Redirect;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.cs4.appointmentManagement.domain.Appointment;
+import com.cs4.appointmentManagement.domain.Doctor;
+import com.cs4.appointmentManagement.domain.Patient;
 import com.cs4.appointmentManagement.domain.User;
 import com.cs4.appointmentManagement.service.AppointmentService;
+import com.cs4.appointmentManagement.service.DoctorService;
 import com.cs4.appointmentManagement.service.PatientService;
 import com.cs4.appointmentManagement.service.UserService;
 
@@ -25,6 +40,9 @@ public class PatientController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	DoctorService docService;
 	
 	@RequestMapping(value = {"/", "/home"})
 	public String listAppointments(Model model){
@@ -50,10 +68,40 @@ public class PatientController {
 		return "patient/profile";
 	}
 	
-	@RequestMapping(value="/bookapt/{patientID}", method=RequestMethod.GET)
-	public String bookAppointment(Model model, @PathVariable Long patientID){
-		
+	@RequestMapping(value="/bookapt/{docID}", method=RequestMethod.GET)
+	public String bookAppointment(Model model, @PathVariable Long docID){
+		model.addAttribute("doctor", docService.findOne(docID));
 		return "patient/bookAppointment";
+	}
+	
+	@SuppressWarnings("deprecation")
+	@RequestMapping(value="/appointment.do", method=RequestMethod.POST)
+	public String saveAppointment(ModelMap model, HttpServletRequest request) throws ParseException{
+		
+		
+		Appointment appointment = new Appointment();
+		
+		Patient pat = new Patient();
+		pat = (Patient) userService.findByUsername(getPrincipal());
+		appointment.setPatient(pat);
+		appointment.setDescription(request.getParameter("desc"));
+		
+		String dt = request.getParameter("dateTime");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.US);
+		Date date = sdf.parse(dt);
+		
+		appointment.setDateTime(date);
+		Doctor doc = new Doctor();
+		System.out.println("Doc ID:: "+request.getParameter("docid"));
+		System.out.println(Integer.parseInt(request.getParameter("docid")));
+		doc = (Doctor) userService.findUserByID(Long.parseLong(request.getParameter("docid"), 10));
+		
+		appointment.setDoctor(doc);
+		appointmentService.save(appointment);
+		
+		model.addAttribute("response", "Sucessfully send Appointment request to Dr. "+doc.getFname() + " " +doc.getLastName()+" on "+date.toString());
+		
+		return "patient/appointmentSuccess";
 	}
 	
 	

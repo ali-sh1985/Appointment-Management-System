@@ -10,5 +10,6 @@ public interface UserService {
 	public void save(User user);
 	public List<User> search(String name);
 	public Long findUserID(String username);
+	public User findUserByID(Long id);
 
 }

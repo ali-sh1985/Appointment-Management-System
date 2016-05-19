@@ -61,9 +61,7 @@ ul li.right{float: right;}
 
 .aptbutton{border: 1px solid #000; padding: 10px; color: #fff; background-color: #4CAF50; }
 
-.registerbox input:focus, .registerbox input:focus{
-    outline: none;
-}
+.registerbox input:focus, .registerbox input:focus{outline: none;}
 
 .loginContainer{ text-align: center; height: 360px; }
 .loginbox{width: 300px; border: 1px solid #000; margin: auto auto;}
@@ -71,14 +69,11 @@ ul li.right{float: right;}
 .loginbox .row > label{ display:inline-block; display: inline-block; width: 100px; color: #4CAF50; font-weight: bold; }
 .loginbox input[type="submit"], .registerbox input[type="submit"]{ background-color: #4CAF50; color: #fff; padding: 10px; }
 .loginbox input[type="email"], .loginbox input[type="text"], .loginbox input[type="password"]{padding: 3px; border: 1px #ccc solid; border-radius: 5%;}
-.search{
-    padding: 5px;
-    border-radius: 25px;
-    margin: 12px;
-    outline-offset: -2px;
-}
+.search{ padding: 5px; border-radius: 25px; margin: 12px; outline-offset: -2px;}
 
 ::placeholder{font-size: 12px;}
+.aapointmentBox{width: 900px; border: 1px solid #000; margin: auto auto; min-height:300px; padding: 10px;}
+.message{width: 90%; border: 1px solid #343;}
 .registerbox {width: 900px; border: 1px solid #000; margin: auto auto; min-height:300px;}
 .registerbox input[type="email"], .registerbox input[type="text"], .registerbox input[type="password"],select{padding: 10px; border: 0; border-bottom: 1px solid #4CAF50; position: relative; z-index: 2; margin: 0 5px; transition: border-color 300ms;}
 
@@ -89,6 +84,11 @@ ul li.right{float: right;}
 .content > h1 {
 	border-bottom: solid 2px #4CAF50;
 }
+
+.appP{width: 50%; float: left; height: 260px;}
+.appP a{color: #4CAF50;font-weight: bold; font-size: 16px; }
+
+.hidden{display: none;}
 
 ol{	list-style: none; }
 

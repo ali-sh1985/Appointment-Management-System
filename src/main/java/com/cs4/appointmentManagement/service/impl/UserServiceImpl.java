@@ -87,4 +87,11 @@ public class UserServiceImpl implements UserService {
 		System.out.println("UService Impl: "+username);
 		return  (Long)userDao.findUserID(username);
 	}
+	
+	@Override
+		public User findUserByID(Long id) {
+			
+			return (User) userDao.findUserByID(id);
+		}
+	
 }

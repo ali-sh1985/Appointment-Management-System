@@ -1,5 +1,6 @@
 package com.cs4.appointmentManagement.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,11 +17,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.cs4.appointmentManagement.service.UserCredentialsService;
-
 @Entity
 @Table(name="CREDENTIALS")
-public class UserCredentials {
+public class UserCredentials implements Serializable {
 	
 	
 	@Id

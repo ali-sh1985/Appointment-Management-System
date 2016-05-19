@@ -39,5 +39,12 @@ public class UseDaoImpl extends GenericDaoImpl<User> implements UserDao{
 		return (Long)u.getId();
 	}
 	
+	@Override
+		public User findUserByID(Long id) {
+			Query query = entityManager.createQuery("SELECT u from "+daoType.getName()+" u WHERE u.id = :id");
+			query.setParameter("id", id);
+			return (User) query.getSingleResult();
+		}
+	
 	
 }

@@ -1,5 +1,6 @@
 package com.cs4.appointmentManagement.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Specialty {
+public class Specialty implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long Id;
