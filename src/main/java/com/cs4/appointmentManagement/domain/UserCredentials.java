@@ -22,6 +22,7 @@ import javax.persistence.Table;
 public class UserCredentials implements Serializable {
 	
 	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="CREDENTIAL_ID")
