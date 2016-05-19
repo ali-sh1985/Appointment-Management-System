@@ -6,10 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.cs4.appointmentManagement.domain.User;
 import com.cs4.appointmentManagement.service.AppointmentService;
 import com.cs4.appointmentManagement.service.PatientService;
+import com.cs4.appointmentManagement.service.UserService;
 
 @Controller
 @RequestMapping("/p")
@@ -21,12 +23,15 @@ public class PatientController {
 	@Autowired
 	PatientService patientService;
 	
+	@Autowired
+	UserService userService;
+	
 	@RequestMapping(value = {"/", "/home"})
 	public String listAppointments(Model model){
-		model.addAttribute("appointments", appointmentService.getAppointmentsByUserID(new Long(1)));
+		model.addAttribute("appointments", appointmentService.getAppointmentsByUserID(getUserID(getPrincipal())));
 		model.addAttribute("user", getPrincipal());
-		System.out.println("Logged IN user : " + getPrincipal());
-		System.out.println(appointmentService.getAppointmentsByUserID(new Long(1)).toString());
+		System.out.println("Logged IN username: " + getPrincipal());
+		System.out.println("Logged IN user ID: " + getUserID(getPrincipal()));
 		return "patient/appointments";
 	}
 	
@@ -45,6 +50,12 @@ public class PatientController {
 		return "patient/profile";
 	}
 	
+	@RequestMapping(value="/bookapt/{patientID}", method=RequestMethod.GET)
+	public String bookAppointment(Model model, @PathVariable Long patientID){
+		
+		return "patient/bookAppointment";
+	}
+	
 	
 	//Getting User-Name
 		private String getPrincipal(){
@@ -57,6 +68,10 @@ public class PatientController {
 				userName = principal.toString();
 			}
 			return userName;
+		}
+		
+		private Long getUserID(String username){
+			return userService.findUserID(username);
 		}
 
 

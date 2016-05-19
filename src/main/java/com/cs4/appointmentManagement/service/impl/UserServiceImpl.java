@@ -80,4 +80,11 @@ public class UserServiceImpl implements UserService {
 		
 		return user;
 	}
+
+
+	@Override
+	public Long findUserID(String username) {
+		System.out.println("UService Impl: "+username);
+		return  (Long)userDao.findUserID(username);
+	}
 }

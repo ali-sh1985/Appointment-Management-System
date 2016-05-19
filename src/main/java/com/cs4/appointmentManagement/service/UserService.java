@@ -9,5 +9,6 @@ public interface UserService {
 	public User findByUsername(String username);
 	public void save(User user);
 	public List<User> search(String name);
+	public Long findUserID(String username);
 
 }
